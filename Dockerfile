@@ -15,5 +15,7 @@ RUN ls /openwrt/
 RUN ./scripts/feeds update packages && ./scripts/feeds install libpcre
 
 RUN git clone https://github.com/ovh/overthebox-shadowsocks-libev.git package/shadowsocks-libev
+RUN git clone https://github.com/tuapuikia/shadowsocks-openwrt.git /tmp/
+RUN cp -R /tmp/shadowsocks-openwrt/mbedtls package/.
 
 RUN make V=99 package/shadowsocks-libev/openwrt/compile
